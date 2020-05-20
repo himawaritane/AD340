@@ -13,7 +13,7 @@ class ForecastRepository {
     fun loadForecast(zipcode: String) {
         val randomValues = List(10) { Random.nextFloat().rem(100)*100}
         val forecastItems = randomValues.map { temp ->
-            DailyForecast(temp, "Party Cloudy")
+            DailyForecast(temp, getTempDescription(temp))
         }
         _weeklyForecast.setValue(forecastItems)
     }
